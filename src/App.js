@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Terminal from './Terminal'
 import Modal from "./Modal";
+import Header from "./Header";
 
 
 function App() {
@@ -19,8 +20,9 @@ function App() {
 
   return (
     <div className="App">
-      <Modal isOpen={isModalOpen} closeModal={closeModal} content={modalContent} />
+      <Header />
       <Terminal openModal={openModal}/>
+      <Modal isOpen={isModalOpen} closeModal={closeModal} content={modalContent} />
     </div>
   );
 }

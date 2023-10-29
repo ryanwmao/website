@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import './Terminal.css';
-import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
-
 
 
 class Terminal extends Component {
@@ -12,7 +10,6 @@ class Terminal extends Component {
       output: "",
     };
     this.inputRef = React.createRef();
-
   }
   
   componentDidMount() {
@@ -43,10 +40,10 @@ class Terminal extends Component {
           break;
         case "about":
           this.setState((prevState) => ({
-            output: prevState.output + "guest@rm-web:~$  " + command + "\n \n" ,
+            output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
             command: "",
           }));
-          this.props.openModal("asdf");
+          this.props.openModal();
           break;
         default:
           this.setState((prevState) => ({
@@ -55,16 +52,9 @@ class Terminal extends Component {
           }));
 
       }
-      
-      this.scrollToBottom();
     }
   };
 
-  scrollToBottom = () => {
-    if (this.inputRef.current) {
-      this.inputRef.current.scrollTop = this.inputRef.current.scrollHeight;
-    }
-  };
 
   formatDate = () => {
     const date = new Date();
@@ -82,30 +72,10 @@ class Terminal extends Component {
 
   render() {
     const { command, output } = this.state;
-    const githubUrl = "https://github.com/ryanwmao";
-    const linkedInUrl = "https://www.linkedin.com/in/ryanwmao/";
-    const emailUrl = "mailto:rwm275@cornell.edu";
+  
 
     return (
       <div className="terminal" onClick={() => this.inputRef.current.focus()}>
-        <div className="header">
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-            <div className="button red">
-              <FaGithub size={40} />
-            </div>
-          </a>
-          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
-            <div className="button yellow">
-              <FaLinkedinIn size={30} />
-            </div>
-          </a>
-          <a href={emailUrl} target="_blank" rel="noopener noreferrer">
-            <div className="button green">
-              <FaEnvelope size={30} />
-            </div>
-          </a>
-          <div className="name">Ryan Mao</div>
-        </div>
         <pre>
           {"Welcome to my site! Enter 'help' for assistance. \nLast Login: " + this.formatDate() +  "\n" + output}
         </pre>
