@@ -31,7 +31,7 @@ const Modal = ({ isOpen, closeModal }) => {
           <AiOutlineClose />
         </button>
         <div className="modal-text">
-          This is some sample text in the modal body.
+          I go to Cornell University! My past work experience is abc
         </div>
       </div>
     </div>

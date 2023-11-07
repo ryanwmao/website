@@ -23,7 +23,7 @@ class Terminal extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { command } = this.state;
-    const helpString = "helpful text here\n";
+    const helpString = "`help`: display help message\n`about`: about me\n`clear`: clear screen\n";
     if (command !== "") {
       switch (command) {
         case "clear":
