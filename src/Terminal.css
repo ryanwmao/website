@@ -33,16 +33,24 @@
   background-color: rgb(54, 54, 54);
 }
 
+
+.terminal pre {
+  margin: 0;
+  padding: 0;
+}
+
 .terminal form {
   display: flex;
   align-items: center;
 }
 
 .input-prefix {
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis;
   width: 275px;
+  text-overflow: ellipsis;
+  white-space-collapse: discard;
+  display: block;
+  font-family: monospace;
+  white-space: pre;
 }
 
 .terminal input {
@@ -52,12 +60,10 @@
   color: rgb(255, 255, 255);
   font-family: "Courier New", monospace;
   font-size: 24px;
-  width: 100%;
-  margin-left: 26px;
   white-space: pre-wrap;
-}
-
-.terminal pre {
-  margin: 0;
-  text-align: left;
+  width: 100%;
+  margin-left: 21px;
+  display: block;
+  font-family: monospace;
+  white-space: pre;
 }

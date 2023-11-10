@@ -83,6 +83,7 @@ class Terminal extends Component {
           <span className="input-prefix">guest@rm-web:~$</span>
           <input
             type="text"
+            spellcheck="false"
             value={command}
             onChange={this.handleInputChange}
             ref={this.inputRef}
