@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Terminal from './components/Terminal'
-import Modal from "./components/Modal";
+import Modal from "./components/About";
 import Header from "./components/Header";
 
 
