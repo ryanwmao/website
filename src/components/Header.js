@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Header.css';
+import './css/Header.css';
 import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 
 class Header extends Component {

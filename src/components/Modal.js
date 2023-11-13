@@ -1,5 +1,5 @@
 import React, { useRef, useEffect} from "react";
-import './Modal.css';
+import './css/Modal.css';
 import { AiOutlineClose } from 'react-icons/ai';
 
 

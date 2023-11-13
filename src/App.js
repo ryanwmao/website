@@ -1,8 +1,8 @@
 import './App.css';
 import { useState } from 'react';
-import Terminal from './Terminal'
-import Modal from "./Modal";
-import Header from "./Header";
+import Terminal from './components/Terminal'
+import Modal from "./components/Modal";
+import Header from "./components/Header";
 
 
 function App() {

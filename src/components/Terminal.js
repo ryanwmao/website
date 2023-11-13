@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Terminal.css';
+import './css/Terminal.css';
 
 
 class Terminal extends Component {
