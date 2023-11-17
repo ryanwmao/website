@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import './css/Terminal.css';
+import NavigationBar from "./Navbar";
 
+const helpString = "`help`: display help message\n`about`: about me\n`clear`: clear screen\n";
 
 class Terminal extends Component {
   constructor(props) {
@@ -10,8 +12,10 @@ class Terminal extends Component {
       output: "",
     };
     this.inputRef = React.createRef();
+    this.date = this.formatDate();
   }
-  
+  constants = require("./navbar-constants");
+
   componentDidMount() {
     this.inputRef.current.focus();
   }
@@ -20,38 +24,44 @@ class Terminal extends Component {
     this.setState({ command: event.target.value });
   };
 
+  handleCommand = (command) => {
+    switch (command) {
+      case "clear":
+        this.setState((prevState) => ({
+          output: "",
+          command: "",
+        }));
+        break;
+      case "help":
+        this.setState((prevState) => ({
+          output: prevState.output + "guest@rm-web:~$  " + command + "\n" + helpString + "\n" ,
+          command: "",
+        }));
+        break;
+      case "about":
+        this.setState((prevState) => ({
+          output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
+          command: "",
+        }));
+        this.props.openModal();
+        break;
+      default:
+        this.setState((prevState) => ({
+          output: prevState.output + "guest@rm-web:~$  " + command + "\n Command not found\n" ,
+          command: "",
+        }));
+    }
+  }
+
+  handleNavigation = (command) => {
+    this.handleCommand(command);
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     const { command } = this.state;
-    const helpString = "`help`: display help message\n`about`: about me\n`clear`: clear screen\n";
     if (command !== "") {
-      switch (command) {
-        case "clear":
-          this.setState((prevState) => ({
-            output: "",
-            command: "",
-          }));
-          break;
-        case "help":
-          this.setState((prevState) => ({
-            output: prevState.output + "guest@rm-web:~$  " + command + "\n" + helpString + "\n" ,
-            command: "",
-          }));
-          break;
-        case "about":
-          this.setState((prevState) => ({
-            output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
-            command: "",
-          }));
-          this.props.openModal();
-          break;
-        default:
-          this.setState((prevState) => ({
-            output: prevState.output + "guest@rm-web:~$  " + command + "\n Command not found\n" ,
-            command: "",
-          }));
-
-      }
+      this.handleCommand(command);
     }
   };
 
@@ -77,18 +87,19 @@ class Terminal extends Component {
     return (
       <div className="terminal" onClick={() => this.inputRef.current.focus()}>
         <pre>
-          {"Welcome to my site! Enter 'help' for assistance. \nLast Login: " + this.formatDate() +  "\n" + output}
+          {"Welcome to my site! Enter 'help' for assistance. \nLast Login: " + this.date +  "\n" + output}
         </pre>
         <form onSubmit={this.handleSubmit}>
           <span className="input-prefix">guest@rm-web:~$</span>
           <input
             type="text"
-            spellcheck="false"
+            spellCheck="false"
             value={command}
             onChange={this.handleInputChange}
             ref={this.inputRef}
           />
         </form>
+        <NavigationBar userInput={command} handleNavigation={this.handleNavigation} />
       </div>
     );
   }
