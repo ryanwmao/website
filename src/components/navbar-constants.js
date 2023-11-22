@@ -1,8 +1,10 @@
 module.exports = Object.freeze({
-  COMMANDS: ["about", "clear", "help"],
+  COMMANDS: ["help", "about", "experience", "resume", "clear"],
   COMMAND_EMOJI: {
     "about": "📔",
     "clear": "🧼",
-    "help": "❓"
+    "help": "❓",
+    "experience": "📚",
+    "resume": "📄",
   }
 });

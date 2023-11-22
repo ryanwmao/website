@@ -16,6 +16,10 @@ class Terminal extends Component {
   }
   constants = require("./navbar-constants");
 
+  openResume = () => {
+    window.open("../../Ryan_Mao_Resume.pdf", "_blank");
+  };
+
   componentDidMount() {
     this.inputRef.current.focus();
   }
@@ -43,7 +47,17 @@ class Terminal extends Component {
           output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
           command: "",
         }));
-        this.props.openModal();
+        this.props.openAbout();
+        break;
+      case "resume":
+        this.openResume();
+        break;
+      case "experience":
+        this.setState((prevState) => ({
+          output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
+          command: "",
+        }));
+        this.props.openExperience();
         break;
       default:
         this.setState((prevState) => ({
@@ -87,7 +101,7 @@ class Terminal extends Component {
     return (
       <div className="terminal" onClick={() => this.inputRef.current.focus()}>
         <pre>
-          {"Welcome to my site! Enter 'help' for assistance. \nLast Login: " + this.date +  "\n" + output}
+          {"Welcome to my site! Click or type a command to continue. \nLast Login: " + this.date +  "\n" + output}
         </pre>
         <form onSubmit={this.handleSubmit}>
           <span className="input-prefix">guest@rm-web:~$</span>

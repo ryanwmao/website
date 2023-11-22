@@ -13,7 +13,7 @@ class Header extends Component {
     <div className="header">
       <a href={githubUrl} target="_blank" rel="noopener noreferrer">
         <div className="button red">
-          <FaGithub size={40} />
+          <FaGithub size={50} />
         </div>
       </a>
       <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">

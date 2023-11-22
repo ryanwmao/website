@@ -1,28 +1,37 @@
 import './App.css';
 import { useState } from 'react';
 import Terminal from './components/Terminal'
-import Modal from "./components/About";
+import About from "./components/About";
 import Header from "./components/Header";
+import Experience from "./components/Experience";
 
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState(null);
+  const [isAboutOpen, setAboutOpen] = useState(false);
+  const [isExperienceOpen, setExperienceOpen] = useState(false);
 
-  const openModal = (content) => {
-    setModalContent(content);
-    setIsModalOpen(true);
+  const openAbout = () => {
+    setAboutOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const closeAbout = () => {
+    setAboutOpen(false);
+  };
+
+  const openExperience = () => {
+    setExperienceOpen(true);
+  };
+
+  const closeExperience = () => {
+    setExperienceOpen(false);
   };
 
   return (
     <div className="App">
       <Header />
-      <Terminal openModal={openModal}/>
-      <Modal isOpen={isModalOpen} closeModal={closeModal} content={modalContent} />
+      <Terminal openAbout={openAbout} openExperience={openExperience}/>
+      <About isOpen={isAboutOpen} closeModal={closeAbout} />
+      <Experience isOpen={isExperienceOpen} closeModal={closeExperience} />
     </div>
   );
 }
