@@ -79,7 +79,6 @@
   position: relative;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color:#3f3f3f;
-  line-height: 1.5;
   min-height: 20px;
 }
 
@@ -103,7 +102,6 @@
 .modal-subtitle {
   font-size: 25px;
   line-height: 1.5;
-  margin-left: 10px;
   position: relative;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   line-height: 1.5;
