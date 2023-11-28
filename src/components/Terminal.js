@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './css/Terminal.css';
 import NavigationBar from "./Navbar";
+import resume from "./files/Ryan_Mao_Resume.pdf"
 
 const helpString = "`help`: display help message\n`about`: about me\n`clear`: clear screen\n";
 
@@ -17,7 +18,7 @@ class Terminal extends Component {
   constants = require("./navbar-constants");
 
   openResume = () => {
-    window.open("../../Ryan_Mao_Resume.pdf", "_blank");
+    window.open(resume, "_blank");
   };
 
   componentDidMount() {

@@ -116,3 +116,25 @@
   height: 1px;
   background-color: #add8e6;
 }
+
+.company-logo {
+  margin-bottom: 15px;
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  align-items: center; 
+  padding: 10px;
+}
+
+.column img {
+  display: block; 
+  margin: auto;
+}
