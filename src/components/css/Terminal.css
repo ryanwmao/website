@@ -39,6 +39,10 @@
   padding: 0;
 }
 
+.grey {
+  color:rgb(130, 130, 130);
+}
+
 .terminal form {
   display: flex;
   align-items: center;

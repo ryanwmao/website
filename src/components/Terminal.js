@@ -3,7 +3,7 @@ import './css/Terminal.css';
 import NavigationBar from "./Navbar";
 import resume from "./files/Ryan_Mao_Resume.pdf"
 
-const helpString = "`help`: display help message\n`about`: about me\n`clear`: clear screen\n";
+const helpString = "Enter a command to proceed! Clickable buttons appear on the navbar below.\nAvailable commands: `help`, `about`, `experience`, `resume`, `clear`\nLinks to relevant sites are available via the buttons in the top left corner.";
 
 class Terminal extends Component {
   constructor(props) {
@@ -102,7 +102,10 @@ class Terminal extends Component {
     return (
       <div className="terminal" onClick={() => this.inputRef.current.focus()}>
         <pre>
-          {"Welcome to my site! Click or type a command to continue. \nLast Login: " + this.date +  "\n" + output}
+          {"👋 Welcome to my site! Click or type a command to continue."}
+        </pre>
+        <pre className="grey">
+          {"Last Login: " + this.date +  "\n" + output}
         </pre>
         <form onSubmit={this.handleSubmit}>
           <span className="input-prefix">guest@rm-web:~$</span>
