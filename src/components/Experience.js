@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./css/Modal.css";
 import { AiOutlineClose } from "react-icons/ai";
 import visaLogo from "./images/visa-logo.png";
@@ -7,6 +7,21 @@ import cornellLogo from "./images/cornell-logo.png";
 
 const Experience = ({ isOpen, closeModal }) => {
   const modalRef = useRef();
+  const [visa, setVisa] = useState(null);
+  const [grub, setGrub] = useState(null);
+  const [cornell, setCornell] = useState(null);
+
+  useEffect(() => {
+    const v = new Image();
+    v.src = visaLogo;
+    v.onload = () => {setVisa(v)};
+    const g = new Image();
+    g.src = grubLogo;
+    g.onload = () => {setGrub(g)};
+    const c = new Image();
+    c.src = cornellLogo;
+    c.onload = () => {setCornell(c)};
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,7 +51,7 @@ const Experience = ({ isOpen, closeModal }) => {
         <div className="modal-subtitle">Work Experience</div>
         <div className="modal-text flex-container">
           <div className="column" style={{ flex: '1' }}>
-            <img src={visaLogo} alt={`Visa logo`} className="img-fluid company-logo" />
+            {visa && <img src={visa.src} alt={`Visa logo`} className="img-fluid company-logo" />}
           </div>
           <div className="column" style={{ flex: '3' }}>
             <p>At Visa, I worked as a member of a software engineering team responsible for a global database synchronization service. At the time, the product was still in early stages of development, so my team was manually pushing code to the company's production servers each week. This process was both time consuming (some sessions lasted 2+ hours!) and prone to human error (very dangerous in a production environment), so I was tasked with automating this entire process as my project. My workflow involved rigorous design, testing, and lots of live demos -- it was very important that I incorporated feedback from different teams who would use my scripts. After my internship, this script package was adopted into my team's code deployment procedure!</p>
@@ -44,7 +59,7 @@ const Experience = ({ isOpen, closeModal }) => {
         </div>
         <div className="modal-text flex-container">
           <div className="column" style={{ flex: '1' }}>
-            <img src={grubLogo} alt={`Grubmarket logo`} className="img-fluid company-logo" />
+            {grub && <img src={grub.src} alt={`Grubmarket logo`} className="img-fluid company-logo" />}
           </div>
           <div className="column" style={{ flex: '3' }}>
             <p>At Grubmarket, I was a member of a small software engineering team dedicated to designing and integrating features into the company's internal tooling website. The project was intended to be an integral means of communication across the company and its acquisitions, and I was responsible for the end-to-end functionality of several key business tools on the site. I was able to gain exposure to a wide tech stack, ranging from the database schema \& queries and Spring Boot in the backend in addition to React.js for the frontend. </p>
@@ -54,7 +69,7 @@ const Experience = ({ isOpen, closeModal }) => {
         <div className="modal-subtitle">Projects</div>
         <div className="modal-text flex-container">
           <div className="column" style={{ flex: '1' }}>
-            <img src={cornellLogo} alt={`Cornell logo`} className="img-fluid company-logo" />
+            {cornell && <img src={cornell.src} alt={`Cornell logo`} className="img-fluid company-logo" />}
             Eta Compiler
           </div>
           <div className="column" style={{ flex: '3' }}>
@@ -63,7 +78,7 @@ const Experience = ({ isOpen, closeModal }) => {
         </div>
         <div className="modal-text flex-container">
           <div className="column" style={{ flex: '1' }}>
-            <img src={cornellLogo} alt={`Cornell logo`} className="img-fluid company-logo" />
+            {cornell && <img src={cornell.src} alt={`Cornell logo`} className="img-fluid company-logo" />}
             OCamlSQL
           </div>
           <div className="column" style={{ flex: '3' }}>
