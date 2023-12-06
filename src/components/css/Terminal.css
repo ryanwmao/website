@@ -43,6 +43,10 @@
   color:rgb(130, 130, 130);
 }
 
+.aged {
+  color:rgb(159, 159, 81);
+}
+
 .terminal form {
   display: flex;
   align-items: center;

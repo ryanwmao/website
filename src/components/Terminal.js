@@ -17,6 +17,13 @@ class Terminal extends Component {
   }
   constants = require("./navbar-constants");
 
+  scrollToBottom = () => {
+    const terminalDiv = document.querySelector('.terminal');
+    if (terminalDiv) {
+      terminalDiv.scrollTop = terminalDiv.scrollHeight;
+    }
+  };
+
   openResume = () => {
     window.open(resume, "_blank");
   };
@@ -35,36 +42,40 @@ class Terminal extends Component {
         this.setState((prevState) => ({
           output: "",
           command: "",
-        }));
+        }), this.scrollToBottom);
         break;
       case "help":
         this.setState((prevState) => ({
           output: prevState.output + "guest@rm-web:~$  " + command + "\n" + helpString + "\n" ,
           command: "",
-        }));
+        }), this.scrollToBottom);
         break;
       case "about":
         this.setState((prevState) => ({
           output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
           command: "",
-        }));
+        }), this.scrollToBottom);
         this.props.openAbout();
         break;
       case "resume":
+        this.setState((prevState) => ({
+          output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
+          command: "",
+        }), this.scrollToBottom);
         this.openResume();
         break;
       case "experience":
         this.setState((prevState) => ({
           output: prevState.output + "guest@rm-web:~$  " + command + "\n" ,
           command: "",
-        }));
+        }), this.scrollToBottom);
         this.props.openExperience();
         break;
       default:
         this.setState((prevState) => ({
           output: prevState.output + "guest@rm-web:~$  " + command + "\n Command not found\n" ,
           command: "",
-        }));
+        }), this.scrollToBottom);
     }
   }
 
@@ -105,7 +116,10 @@ class Terminal extends Component {
           {"👋 Welcome to my site! Click or type a command to continue."}
         </pre>
         <pre className="grey">
-          {"Last Login: " + this.date +  "\n" + output}
+          {"Last Login: " + this.date}
+        </pre>
+        <pre className="aged">
+          {output}
         </pre>
         <form onSubmit={this.handleSubmit}>
           <span className="input-prefix">guest@rm-web:~$</span>

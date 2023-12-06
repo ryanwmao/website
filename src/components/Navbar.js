@@ -11,7 +11,7 @@ const NavigationBar = ({ userInput, handleNavigation }) => {
 
   return (
     <div className="navigation-bar">
-      {filteredCommands.length > 0 && (
+      {filteredCommands.length > 0 ? (
         <ul className="navbar-list">
           {filteredCommands.map((command, index) => (
             <li key={index} onClick={(e) => {
@@ -22,7 +22,8 @@ const NavigationBar = ({ userInput, handleNavigation }) => {
             </li>
           ))}
         </ul>
-      )}
+      ) : 
+        <ul className="navbar-list" />}
     </div>
   );
 };
