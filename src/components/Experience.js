@@ -21,17 +21,18 @@ const Experience = ({ isOpen, closeModal }) => {
     health: null
   });
 
-  const imageUrls = [
-    { name: 'visa', url: visaLogo },
-    { name: 'grub', url: grubLogo },
-    { name: 'cornell', url: cornellLogo },
-    { name: 'glasses', url: glassesImg },
-    { name: 'flow', url: flowImg },
-    { name: 'chess', url: chessImg },
-    { name: 'health', url: healthTrack }
-  ];
 
   useEffect(() => {
+    const imageUrls = [
+      { name: 'visa', url: visaLogo },
+      { name: 'grub', url: grubLogo },
+      { name: 'cornell', url: cornellLogo },
+      { name: 'glasses', url: glassesImg },
+      { name: 'flow', url: flowImg },
+      { name: 'chess', url: chessImg },
+      { name: 'health', url: healthTrack }
+    ];
+
     imageUrls.forEach((imageData) => {
       const img = new Image();
       img.src = imageData.url;
@@ -42,7 +43,7 @@ const Experience = ({ isOpen, closeModal }) => {
         }));
       };
     });
-  });
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -51,8 +52,18 @@ const Experience = ({ isOpen, closeModal }) => {
       }
     };
 
+    const colors = ['#ffcc80', '#b2ebf2', '#c5e1a5', '#f8bbd0', '#d1c4e9'];
+    const getRandomColor = () => {
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      return colors[randomIndex];
+    };
+
     if (isOpen) {
       document.addEventListener("click", handleClickOutside);
+      const listItems = document.querySelectorAll('.exp-ul li');
+      listItems.forEach((item) => {
+        item.style.backgroundColor = getRandomColor();
+      });
     }
 
     return () => {
@@ -87,7 +98,12 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p>At Visa, I worked as a member of a software engineering team responsible for a global database synchronization service. At the time, the product was still in early stages of development, so my team was manually pushing code to the company's production servers each week. This process was both time consuming (some sessions lasted 2+ hours!) and prone to human error (very dangerous in a production environment), so I was tasked with automating this entire process as my project. My workflow involved rigorous design, testing, and lots of live demos -- it was very important that I incorporated feedback from different teams who would use my scripts. After my internship, this script package was adopted into my team's code deployment procedure!</p>
+            <ul className="exp-ul" id="note-list">
+              <li>Member of a team responsible for a global database synchronization service</li>
+              <li>My team was relatively new, so code deployment to production servers was handled manually. This was both time consuming (some sessions lasted 2+ hours!) and error-prone, so my project aimed to automate the entire process through implementation of a Bash script package</li>
+              <li>My workflow involved rigorous design, testing, and lots of live demos to incorporate feedback into my project</li>
+              <li>The package was adopted into my team's code deployment procedure after my internship</li>
+            </ul>
           </div>
         </div>
         <div className="modal-text flex-container">
@@ -97,7 +113,7 @@ const Experience = ({ isOpen, closeModal }) => {
                 {images.glasses && <img src={images.glasses.src} alt={`Glasses`} className="img-fluid company-logo" />}
               </div>
               <div className="subtext">
-                Biometric Authentication
+                C-Auth: Biometric Authentication
               </div>
               <button className="icon-button" onClick={() => window.open('https://dl.acm.org/doi/10.1145/3594738.3611355', '_blank')}>
                 <AiOutlineExport />
@@ -105,7 +121,12 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p></p>
+            <ul className="exp-ul" id="note-list">
+              <li>Research project exploring the feasibility of using facial contours for user authentication </li>
+              <li>We mount a camera to a smart glasses device, capturing the wearer's facial contours. These images are used as part of our authentication process</li>
+              <li>Contributed towards ML model training, data collection, and general scripting</li>
+              <li>Paper accepted to ISWC '23</li>
+            </ul>
           </div>
         </div>
 
@@ -127,7 +148,12 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p></p>
+            <ul className="exp-ul" id="note-list">
+              <li>Research project investigating approximation algorithms for the budget constrained max flow problem </li>
+              <li>Problem inputs: series-parallel graph, with arbitrary source and sink node; each edge has a given capacity and cost. Additionally, we are given some budget for 'buying' edges</li>
+              <li>Goal: maximize the flow from the source to the sink that results from the edges that are purchased, while remaining within the budget</li>
+              <li>We formulate a pseudo-polynomial time DP algorithm to solve the problem exactly, and then formulate a polynomial-time approximation scheme for the problem</li>
+            </ul>
           </div>
         </div>
         <div className="modal-text flex-container">
@@ -145,7 +171,11 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p></p>
+            <ul className="exp-ul" id="note-list">
+              <li>Interactive chess engine with a terminal-based UI</li>
+              <li>Chess bot calculates moves utilizing a minimax algorithm with alpha-beta pruning for faster computation</li>
+              <li>Implemented in Python</li>
+            </ul>
           </div>
         </div>
 
@@ -168,7 +198,12 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p>I contributed to building an end-to-end compiler as a group project for Cornell's Practicum in Compilers. The compiler's features include a parser, lexer, type checking, support for a specified intermediate representation, AST tiling and translation to machine code. Our group implemented code optimizations including constant folding, copy propagation, and dead code elimination. The entire project amounted to 11,000 lines of code, primiarly in C++.</p>
+            <ul className="exp-ul" id="note-list">
+              <li>End-to-end compiler for a fictitious programming language completed as a group project for CS 4121 - Practicum in Compilers</li>
+              <li>Includes a lexer, parser, type checking, AST tiling, and translation to assembly code</li>
+              <li>Our group implemented code optimizations including constant folding, copy propagation, and dead code elimination</li>
+              <li>Implemented primarily in C++</li>
+            </ul>
           </div>
         </div>
         <div className="modal-text flex-container">
@@ -186,7 +221,12 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p>I developed a terminal-based SQL query program in OCaml as a group project for Cornell's functional programming course. With 2000 lines of OCaml code, my group and I were able to implement the logic behind a subset of SQL query commands and connect them to a terminal-based prompt window. Our final project is able to read local .csv files and return results of various SQL queries performed on files.</p>
+            <ul className="exp-ul" id="note-list">
+              <li>Terminal-based SQL query program developed as a group project for CS 3110 - Functional Programming</li>
+              <li>Our group implemented the logic behind a subset of SQL query commands and connected them to a terminal-based prompt window</li>
+              <li>Final project is able to read local .csv files and return results of various SQL queries performed on files</li>
+              <li>Implemented in OCaml</li>
+            </ul>
           </div>
         </div>
 
@@ -208,7 +248,12 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p>At Grubmarket, I was a member of a small software engineering team dedicated to designing and integrating features into the company's internal tooling website. The project was intended to be an integral means of communication across the company and its acquisitions, and I was responsible for the end-to-end functionality of several key business tools on the site. I was able to gain exposure to a wide tech stack, ranging from the database schema \& queries and Spring Boot in the backend in addition to React.js for the frontend. </p>
+            <ul className="exp-ul" id="note-list">
+              <li>Member of a team dedicated to designing and integrating features into the company's internal webapp tool</li>
+              <li>The project is intended to be an integral means of communication across the company and its acquisitions</li>
+              <li>I was responsible for the end-to-end functionality of several key business tools on the site</li>
+              <li>Gained exposure to a wide tech stack, ranging from the database schema & queries and Spring Boot in the backend in addition to React.js for the frontend. </li>
+            </ul>
           </div>
         </div>
         <div className="modal-text flex-container">
@@ -226,7 +271,10 @@ const Experience = ({ isOpen, closeModal }) => {
             </div>
           </div>
           <div className="column3">
-            <p></p>
+            <ul className="exp-ul" id="note-list">
+              <li>Full-stack web app project that allows users to track various health metrics</li>
+              <li>Graphs and other summaries are available based on the data entered by users</li>
+            </ul>
           </div>
         </div>
         <div className="modal-text" />
