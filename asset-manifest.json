@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.css": "/website/static/css/main.f37ed762.css",
-    "main.js": "/website/static/js/main.7381edaf.js",
+    "main.css": "/website/static/css/main.23e11c4a.css",
+    "main.js": "/website/static/js/main.ebbc2bbb.js",
     "static/js/787.71e672d5.chunk.js": "/website/static/js/787.71e672d5.chunk.js",
     "static/media/portrait.jpg": "/website/static/media/portrait.9a4e4fac8a30356e3714.jpg",
     "static/media/cornell-logo.png": "/website/static/media/cornell-logo.f0b61c0ddd2e738cf5bb.png",
+    "static/media/flow.png": "/website/static/media/flow.54f0cbb591309a46dfa4.png",
     "static/media/visa-logo.png": "/website/static/media/visa-logo.ede95a23f3bfc03abd95.png",
-    "static/media/Ryan_Mao_Resume.pdf": "/website/static/media/Ryan_Mao_Resume.7ca8ebbc003209a3b6a7.pdf",
+    "static/media/Ryan_Mao_Resume.pdf": "/website/static/media/Ryan_Mao_Resume.6c12289df01b72a299c1.pdf",
+    "static/media/chess.png": "/website/static/media/chess.a47f5f21aa61974aa567.png",
+    "static/media/glasses.png": "/website/static/media/glasses.6bceb925488611a729c5.png",
     "index.html": "/website/index.html",
-    "main.f37ed762.css.map": "/website/static/css/main.f37ed762.css.map",
-    "main.7381edaf.js.map": "/website/static/js/main.7381edaf.js.map",
+    "main.23e11c4a.css.map": "/website/static/css/main.23e11c4a.css.map",
+    "main.ebbc2bbb.js.map": "/website/static/js/main.ebbc2bbb.js.map",
     "787.71e672d5.chunk.js.map": "/website/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f37ed762.css",
-    "static/js/main.7381edaf.js"
+    "static/css/main.23e11c4a.css",
+    "static/js/main.ebbc2bbb.js"
   ]
 }
