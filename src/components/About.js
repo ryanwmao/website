@@ -5,7 +5,7 @@ import portrait from "./images/portrait.jpg";
 
 const About = ({ isOpen, closeModal }) => {
   const modalRef = useRef();
-  const bioText = "Welcome! I'm Ryan, and I'm currently an M.Eng student studying computer science at Cornell University. I am an avid learner and passionate about technology, and I'm excited to pursue a career in software engineering! During my undergraduate studies, I've had the opportunity to work as a software engineering intern at both Visa and Grubmarket, where I worked on Bash scripting and full stack projects. On campus, I was a member of Cornell Hyperloop, where I was involved in the design and implementation of a Graphical User Interface (GUI) for the team's Hyperloop pod. Moving forward, I'm excited to be joining Roblox as a software engineer after my graduation in May 2024."
+  const bioText = "Welcome! I'm Ryan, an M.Eng student in computer science at Cornell University. I'm broadly interested in ML/AI, theory of computing, and general backend development. You can find relevant experiences and projects under the experience section of this website. I'm excited to be pursuing a career in software engineering, and I will be joining Roblox as a software engineer after my graduation in May 2024."
   const bioText2 = "In my free time, I enjoy weightlifting, video games, and basketball. If you like what you see, I'd love to connect! My socials are linked in the title bar on the home page."
   const [preloadedImage, setPreloadedImage] = useState(null);
 
@@ -83,12 +83,16 @@ const About = ({ isOpen, closeModal }) => {
     </div>
   ));
 
-  const modalTextElements2 = calculateLines(bioText2, Math.floor(maxCharsPerLine / 0.6)).map((line, index) => (
+  const modalTextElements2 = calculateLines(bioText2, maxCharsPerLine).map((line, index) => (
     <div key={index} className="modal-text">
       {line}
     </div>
   ));
 
+
+  const emptyLines = Array(5).fill(0).map((_, index) => (
+    <div key={index} className="modal-text" />
+  ));
 
   return (
     <div className="modal-overlay" onClick={closeModal}>
@@ -102,6 +106,7 @@ const About = ({ isOpen, closeModal }) => {
         <div className="modal-text" />
         <div className="modal-text" />
         {modalTextElements2}
+        {emptyLines}
       </div>
     </div>
   );

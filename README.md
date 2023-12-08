@@ -74,5 +74,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## TODO:
 * Transitions on opening/closing modals
-* Modal content
-https://www.cs.cornell.edu/courses/cs4120/2023sp/project/bakeoff/
